@@ -8,21 +8,8 @@
 <h1>Folder List</h1>
 <div ng-controller="folderController" class="folder-list">
 
-    <!-- This is clearly not ideal. It only works for two levels and spaghetti code is no fun. -->
-    <li ng-repeat="folder in folders">
-        <!-- the basic idea here was to toggle the subfolder view. -->
-        <!-- TODO: Second click works, but first doesn't. Fix -->
-        <a href="#" class="folder level-1" ng-click="$parent.toggleSubs(folder.Id)">{{folder.Name}}</a>
-        <p ng-if="folder.Folders">
-            <ul>
-                <li ng-show="folder.showSubFolders" ng-repeat="sub in folder.Folders">
-                    <a href="#" class="folder level-2">
-                    Sub: {{sub.Name}}</a>
-                </li>
-            </ul>
-        </p>
-    </li>
-
+<folder-list list='folders'></folder-list>
+    
 </div>
 
 <script src="bower_components/jquery/dist/jquery.js"></script>
